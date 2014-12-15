@@ -7,6 +7,7 @@ int N;
 vector <char> s;
 vector <char> t;
 
+// next char for t
 char judge(int acm = 0){
   char s_f = *(s.begin()+acm);
   char s_b = *(s.end()-1-acm);
@@ -26,8 +27,7 @@ char judge(int acm = 0){
   }
 }
 
-int main()
-{
+int main(){
   cin >> N;
   for (int i = 0; i < N; i++) {
     char tmp;
@@ -40,10 +40,9 @@ int main()
     t.push_back(c);
   }
 
-  for (int i = 0; i < N; i++) {
+  for (int i = 0; i < N; i++){
     cout << t[i];
   }
-
   cout << endl;
   return 0;
 }
