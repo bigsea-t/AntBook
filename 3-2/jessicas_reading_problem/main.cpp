@@ -8,6 +8,7 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <map>
 using namespace std;
 
 const int MAX_N = 1000000;
@@ -18,24 +19,30 @@ int main(){
 
   set<int> all;
   for (int i = 0; i < N; i++) {
-    cin >> a[i];
+    scanf("%d",&a[i]);
     all.insert(a[i]);
   }
 
 
-  int s,t,sum,ans;
+  int s,t,sum,ans,all_vars,vars;
   s = t = sum = 0;
   ans = N;
+  all_vars = all.size();
+  vars = 0;
+  map<int,int> counter;
 
-  // par .. [s,t)
   while (1) {
-    set<int> par;
-    while (!(par == all) && t < N) {
-      par.insert(a[t++]);
+    while (vars < all_vars && t < N) {
+      if(counter[a[t]]==0)
+        vars++;
+      counter[a[t]]++;
+      t++;
     }
-    if(!(par == all))
+    if(vars < all_vars)
       break;
     ans = min(ans,t-s);
+    if(--counter[a[s]]==0)
+      vars--;
     s++;
   }
 
