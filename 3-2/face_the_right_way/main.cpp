@@ -56,9 +56,9 @@ void solve(){
 
 int main(){
   scanf("%d",&N);
-  char c;
-  scanf("%c",&c);
   for (int i = 0; i < N; i++) {
+    char c;
+    scanf("%c",&c);
     scanf("%c",&c);
     dir[i] = (c == 'F') ? 0 : 1;
   }
